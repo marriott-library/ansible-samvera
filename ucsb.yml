@@ -1,0 +1,9 @@
+---
+
+- hosts: geoworks-sandbox.library.ucsb.edu
+  become: yes
+  vars:
+    project_name: iris
+  roles:
+    #- { role: apache,  passenger_ver: '5.1.11' }
+    - { role: sidekiq }

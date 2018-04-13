@@ -1,7 +1,7 @@
 ---
 - name: create sidekiq system service
   become: yes
-  template: src=sidekiq.service.j2 dest=/lib/systemd/system/sidekiq.service owner=root group=root backup=no
+  template: src=sidekiq.service.j2 dest=/usr/lib/systemd/system/sidekiq.service owner=root group=root backup=no
 
 - name: enable sidekiq system service
   become: yes
@@ -15,6 +15,6 @@
     name: sidekiq
     state: started
 
-- name: allow deploy user to restart sidekiq
+- name: allow adrl user to restart sidekiq
   become: yes
   template: src=sidekiq.sudoers.j2 dest=/etc/sudoers.d/sidekiq-restart-users owner=root group=root backup=no

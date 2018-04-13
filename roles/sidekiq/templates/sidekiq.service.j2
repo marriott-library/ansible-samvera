@@ -29,8 +29,8 @@ WorkingDirectory=/opt/{{ project_name }}/current
 # ExecStart=/bin/bash -lc 'bundle exec sidekiq -e production'
 # If you use the system's ruby:
 ExecStart=/usr/local/bin/bundle exec sidekiq -e production -C config/sidekiq.yml -L log/sidekiq.log
-User=deploy
-Group=deploy
+User=adrl
+Group=adrl
 UMask=0002
 
 # if we crash, restart

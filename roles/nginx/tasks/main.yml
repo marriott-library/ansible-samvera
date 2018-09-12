@@ -1,0 +1,19 @@
+---
+# Role: nxinx
+# roles/nginx/tasks/main.yml
+#
+# Installs Nginx
+#
+# Usage:
+#    - { role: apache_with_mod_ssl }
+#
+# NOTE: this role does not configure an application Virtual Host, you must do that in an application setup role
+#
+
+- name: install nginx
+  become: yes
+  command: sudo apt-get install nginx
+
+- name: remove default site
+  become: yes
+  command: rm /etc/nginx/sites-enabled/default

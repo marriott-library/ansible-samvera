@@ -12,7 +12,7 @@
   service:
     name: solr
     state: restarted
-    
+
 - name: restart fedora
   become: yes
   service:
@@ -20,9 +20,9 @@
     enabled: yes
     state: restarted
 
-- name: restart apache
+- name: restart nginx
   become: yes
   service:
-    name: apache2
+    name: nginx
     enabled: yes
     state: restarted

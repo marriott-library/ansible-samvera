@@ -1,17 +1,25 @@
+[![Build Status](https://travis-ci.org/marriott-library/ansible-samvera.svg?branch=master)](https://travis-ci.org/marriott-library/ansible-samvera)
+
 # ansible-samvera
 Prototype Configuration Management Scripts for Samvera based servers
 
-This repository provides predefined ansible roles to install and configure a typical set of dependencies 
+This repository provides predefined ansible roles to install and configure a typical set of dependencies
 required to run a Hyrax-based repository, including:
 
 * Solr
 * Fedora
 * Postgres SQL
 * Apache webserver
+
+* Nginx Webserver
+* Phusion Passenger
+* Libre Office
+
 * Ruby
-* FITS
+* FITS ~v.1.3.0
 * FFMpeg and it's dependencies
-* ImageMagick and it's dependencies
+* ImageMagick and it's dependencies (jp2?)
+
 
 ## Prerequisites
 Tested with [Ansible](http://docs.ansible.com/intro_installation.html) 2.5.4. Please note that ansible is *very* picky about version numbers. You will get better results if you use pip to install ansible. To upgrade do: `pip install ansible==2.5.4`
@@ -49,7 +57,7 @@ Here is an example playbook that uses these roles (plus a few extra internal-to-
   roles:
     - { role: packages }
     - { role: capybara-webkit }
-    - { role: set_timezone, timezone: America/Chicago }
+    - { role: set_timezone, timezone: America/Denver }
     - { role: set_hostname, hostname: stage-demo }
     - { role: sshd_config }
     - { role: setup_logrotation }
@@ -58,9 +66,9 @@ Here is an example playbook that uses these roles (plus a few extra internal-to-
     - { role: ruby, ruby_version: '2.4.2', ruby_sha_256: '93b9e75e00b262bc4def6b26b7ae8717efc252c47154abb7392e54357e6c8c9c' }
     - { role: postgres }
     - { role: fedora, fedora_version: '4.7.5' }
-    - { role: solr, solr_version: '6.6.2' }
+    - { role: solr, solr_version: '7.4.0' }
     - { role: pip }
-    - { role: fits, fits_version: '0.8.4' }
+    - { role: fits, fits_version: '1.3.0' }
     - { role: apache, passenger_ver: '5.1.11'}
     - { role: apache_with_mod_ssl }
     - { role: capistrano_setup }
@@ -74,4 +82,7 @@ Here is an example playbook that uses these roles (plus a few extra internal-to-
     - { role: force_ssl }
     - { role: restart }
     - { role: splunkuforwarder }
+    - { role: nginx }
+    - { role: libreoffice }
+    - { role: phusionpassenger }
 ```

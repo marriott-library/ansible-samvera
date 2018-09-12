@@ -10,4 +10,4 @@
 - name: set timezone on machine
   become: yes
   timezone:
-    name: "{{ timezone | default('America/New_York') }}"
+    name: "{{ timezone | default('America/Denver') }}"

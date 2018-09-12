@@ -1,0 +1,15 @@
+---
+# Role: libreoffice
+# roles/libreoffice/tasks/main.yml
+#
+# Installs LibreOffice
+#
+# Usage:
+#    - { role: apache_with_mod_ssl }
+#
+# NOTE: this role does not configure an application Virtual Host, you must do that in an application setup role
+
+- name: install LibreOffice
+  package:
+    name: libreoffice
+    state: present
